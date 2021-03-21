@@ -12,7 +12,7 @@ namespace Midterm
         //display to console
         public override string Display() 
         {
-            return $"ID: {ID}\nSummary: {summary}\nStatus: {status}\nPriority: {priority}\nSubmitter: {submitter}\nAssigner: {assigner}\nWatcher: {string.Join(", ", watchers)}\nSoftware: {software}\nCost: {cost}\nReason: {reason}\nEstimate: {estimate}";
+            return $"ID: {ID}\nSummary: {summary}\nStatus: {status}\nPriority: {priority}\nSubmitter: {submitter}\nAssigner: {assigner}\nWatcher: {string.Join(", ", watchers)}\nSoftware: {software}\nCost: {cost}\nReason: {reason}\nEstimate: {estimate}\n";
         }
     }
 }

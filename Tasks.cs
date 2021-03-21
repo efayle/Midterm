@@ -11,7 +11,7 @@ namespace Midterm
         //display to console
         public override string Display() 
         {
-            return $"ID: {ID}\nSummary: {summary}\nStatus: {status}\nPriority: {priority}\nSubmitter: {submitter}\nAssigner: {assigner}\nWatcher: {string.Join(", ", watchers)}\nProject Name: {projectName}\n Due Date:{dueDate}\n";
+            return $"ID: {ID}\nSummary: {summary}\nStatus: {status}\nPriority: {priority}\nSubmitter: {submitter}\nAssigner: {assigner}\nWatcher: {string.Join(", ", watchers)}\nProject Name: {projectName}\nDue Date:{dueDate}\n";
         }
     }
 }
