@@ -15,6 +15,9 @@ namespace Midterm
             string enhancementFilePath = Directory.GetCurrentDirectory() + "\\Enhancements.csv";
             EnhancementFile enhancementFile = new EnhancementFile(enhancementFilePath);
 
+            string taskFilePath = Directory.GetCurrentDirectory() + "\\Tasks.csv";
+            TaskFile taskFile = new TaskFile(taskFilePath);
+
             logger.Info("Program started");
 
             string userChoice;
@@ -28,6 +31,9 @@ namespace Midterm
                     }
                     foreach (Enhancements e in enhancementFile.Enhancements) {
                         Console.WriteLine(e.Display());
+                    }
+                    foreach (Tasks t in taskFile.Tasks) {
+                        Console.WriteLine(t.Display());
                     }
                 } else if (userChoice == "2") {
                     Console.WriteLine("Create a ticket");
@@ -131,7 +137,49 @@ namespace Midterm
 
                             enhancementFile.AddTicket(enhancements);
                         } else if (userOption == "3") {
+                            Tasks tasks = new Tasks();
+
                             Console.WriteLine("Task");
+                            Console.WriteLine("Enter the following");
+
+                            Console.WriteLine("ID:");
+                            tasks.ID = Convert.ToInt32(Console.ReadLine());
+
+                            Console.WriteLine("Summary:");
+                            tasks.summary = Console.ReadLine();
+
+                            Console.WriteLine("Status:");
+                            tasks.status = Console.ReadLine();
+
+                            Console.WriteLine("Priority:");
+                            tasks.priority = Console.ReadLine();
+
+                            Console.WriteLine("Submitter:");
+                            tasks.submitter = Console.ReadLine();
+
+                            Console.WriteLine("Assigner:");
+                            tasks.assigner = Console.ReadLine();
+
+                            string watchers;
+                            do {
+                                Console.WriteLine("Watchers (Enter 'done' when fininshed)");
+                                watchers = Console.ReadLine();
+
+                                if (watchers != "done" && watchers.Length > 0) {
+                                    tasks.watchers.Add(watchers);
+                                } else if (tasks.watchers.Count == 0) {
+                                    tasks.watchers.Add("(No watchers listed)");
+                                }
+
+                            } while (watchers != "done");
+
+                            Console.WriteLine("Project Name:");
+                            tasks.projectName = Console.ReadLine();
+
+                            Console.WriteLine("Due Date:");
+                            tasks.dueDate = Console.ReadLine();
+
+                            taskFile.AddTicket(tasks);
                         }
                     } while (userOption == "1" || userOption == "2" || userOption == "3");
                 }
